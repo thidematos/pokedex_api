@@ -14,9 +14,7 @@ const schedule = require('node-schedule');
 const { default: axios } = require('axios');
 
 const job = schedule.scheduleJob('*/3 * * * *', function () {
-  axios
-    .get('https://softcare-test.onrender.com/api/v1/poke')
-    .then(() => console.log('poked'));
+  axios.get(process.env.LINK).then(() => console.log('poked'));
 });
 
 const server = app.listen(process.env.PORT || 3000, async () => {
